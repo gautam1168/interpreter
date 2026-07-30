@@ -1,0 +1,12 @@
+[
+  {
+    "label": "Debug clox",
+    "adapter": "CodeLLDB",
+    "request": "launch",
+    "program": "./clox",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "build": {
+      "command": "make"
+    }
+  }
+]
