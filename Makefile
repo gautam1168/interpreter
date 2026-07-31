@@ -1,5 +1,5 @@
 CC = clang
-CFLAGS = -fsanitize=address,undefined -g -O0 -Wall -Wextra
+CFLAGS = -fsanitize=address,undefined -g -O0 -Wall -Wextra -Wno-unused-parameter
 SRCS = $(wildcard *.c)
 
 clox: $(SRCS)

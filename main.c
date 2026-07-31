@@ -1,5 +1,5 @@
-#include "stdio.h"
+#include "common.h"
 
-int main() {
-  printf("hello world!\n");
+int main(int argc, const char *argv[]) {
+  return 0;
 }
