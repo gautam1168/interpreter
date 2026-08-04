@@ -1,2 +1,3 @@
 clox
 *.dSYM
+.DS_Store
