@@ -4,6 +4,7 @@
     "adapter": "CodeLLDB",
     "request": "launch",
     "program": "./clox",
+    "args": ["./test/expressions/parse.lox"],
     "cwd": "$ZED_WORKTREE_ROOT",
     "build": {
       "command": "make"
