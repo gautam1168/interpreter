@@ -132,11 +132,23 @@ static bool isAlpha(char c) {
     (c == '_');
 }
 
+bool cmpStrings(const char *a, const char *b, int length) {
+  bool result = true;
+  for (int i = 0; (i < length) && (result); ++i) {
+    result = result && (*a == *b);
+    a++;
+    b++;
+  }
+  return result;
+}
+
 static TokenType checkKeyword(int start, int length, const char *rest, TokenType type) {
-  if (scanner.current - scanner.start == start + length &&
-    memcmp(scanner.start + start, rest, length)) {
-      return type;
-    }
+  bool lengthsMatch = scanner.current - scanner.start == start + length;
+  // bool charsMatch = memcmp(scanner.start + start, rest, length);
+  bool charsMatch = cmpStrings(scanner.start + start, rest, length);
+  if (lengthsMatch && charsMatch) {
+    return type;
+  }
   return TOKEN_IDENTIFIER;
 }
 
