@@ -109,6 +109,16 @@ bool tableDelete(Table *table, ObjString *key) {
   return true;
 }
 
+static bool eqStrings(const char *a, const char *b, int length) {
+  bool result = true;
+  int i = 0;
+  while (result && i < length) {
+    result = a[i] == b[i];
+    i++;
+  }
+  return result;
+}
+
 ObjString * tableFindString(Table *table, const char *chars, int length, uint32_t hash) {
   if (table->count == 0) return NULL;
 
@@ -119,7 +129,7 @@ ObjString * tableFindString(Table *table, const char *chars, int length, uint32_
       if (IS_NIL(entry->value)) return NULL;
     } else if ((entry->key->length == length) &&
       (entry->key->hash == hash) &&
-      (strcmp(entry->key->chars, chars) == 0)
+      (eqStrings(entry->key->chars, chars, length))
     ) {
       return entry->key;
     }
